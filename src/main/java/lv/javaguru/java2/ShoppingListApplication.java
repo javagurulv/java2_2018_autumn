@@ -1,7 +1,7 @@
 package lv.javaguru.java2;
 
-import lv.javaguru.java2.db.Database;
-import lv.javaguru.java2.db.InMemoryDatabase;
+import lv.javaguru.java2.database.ProductRepository;
+import lv.javaguru.java2.database.jdbc.ProductRepositoryImpl;
 import lv.javaguru.java2.services.AddProductService;
 import lv.javaguru.java2.services.GetShoppingListService;
 import lv.javaguru.java2.services.RemoveProductService;
@@ -20,7 +20,7 @@ public class ShoppingListApplication {
         // 3. Print shopping list to console
         // 4. Exit
         
-        Database database = new InMemoryDatabase();
+        ProductRepository database = new ProductRepositoryImpl();
 
         AddProductService addProductService = new AddProductService(database);
         RemoveProductService removeProductService = new RemoveProductService(database);

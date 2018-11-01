@@ -1,13 +1,13 @@
 package lv.javaguru.java2.services;
 
 import lv.javaguru.java2.domain.Product;
-import lv.javaguru.java2.db.Database;
+import lv.javaguru.java2.database.ProductRepository;
 
 public class AddProductService {
 
-    private Database database;
+    private ProductRepository database;
 
-    public AddProductService(Database database) {
+    public AddProductService(ProductRepository database) {
         this.database = database;
     }
 
@@ -17,7 +17,7 @@ public class AddProductService {
         product.setTitle(title);
         product.setDescription(description);
 
-        database.addProduct(product);
+        database.save(product);
     }
 
 }

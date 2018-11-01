@@ -1,4 +1,4 @@
-package lv.javaguru.java2.db;
+package lv.javaguru.java2.database;
 
 import lv.javaguru.java2.domain.Product;
 
@@ -6,17 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class InMemoryDatabase implements Database {
+public class InMemoryDatabase implements ProductRepository {
 
     private List<Product> products = new ArrayList<>();
 
     @Override
-    public void addProduct(Product product) {
+    public void save(Product product) {
         products.add(product);
     }
 
     @Override
-    public Optional<Product> findProductByTitle(String title) {
+    public Optional<Product> findByTitle(String title) {
         /*for (Product product : products) {
             if (product.getTitle().equals(title)) {
                 return Optional.of(product);
@@ -30,12 +30,12 @@ public class InMemoryDatabase implements Database {
     }
 
     @Override
-    public boolean deleteProduct(Product product) {
+    public boolean remove(Product product) {
         return products.remove(product);
     }
 
     @Override
-    public List<Product> getAllProducts() {
+    public List<Product> getAll() {
         return new ArrayList<>(products);
     }
 
