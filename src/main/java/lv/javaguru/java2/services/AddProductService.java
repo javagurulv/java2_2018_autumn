@@ -1,14 +1,17 @@
 package lv.javaguru.java2.services;
 
-import lv.javaguru.java2.domain.Product;
 import lv.javaguru.java2.database.ProductRepository;
+import lv.javaguru.java2.domain.Product;
+import org.springframework.stereotype.Component;
 
+@Component
 public class AddProductService {
 
-    private ProductRepository database;
+    //@Autowired
+    private ProductRepository repository;
 
-    public AddProductService(ProductRepository database) {
-        this.database = database;
+    public AddProductService(ProductRepository repository) {
+        this.repository = repository;
     }
 
     public void add(String title,
@@ -17,7 +20,7 @@ public class AddProductService {
         product.setTitle(title);
         product.setDescription(description);
 
-        database.save(product);
+        repository.save(product);
     }
 
 }

@@ -2,9 +2,11 @@ package lv.javaguru.java2.services;
 
 import lv.javaguru.java2.domain.Product;
 import lv.javaguru.java2.database.ProductRepository;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class GetShoppingListService {
     
     private ProductRepository database;

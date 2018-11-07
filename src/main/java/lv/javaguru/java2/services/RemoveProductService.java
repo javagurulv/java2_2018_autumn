@@ -2,9 +2,11 @@ package lv.javaguru.java2.services;
 
 import lv.javaguru.java2.domain.Product;
 import lv.javaguru.java2.database.ProductRepository;
+import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
+@Component
 public class RemoveProductService {
 
     private ProductRepository database;

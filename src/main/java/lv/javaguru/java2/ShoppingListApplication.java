@@ -1,13 +1,11 @@
 package lv.javaguru.java2;
 
-import lv.javaguru.java2.database.ProductRepository;
-import lv.javaguru.java2.database.jdbc.ProductRepositoryImpl;
-import lv.javaguru.java2.services.AddProductService;
-import lv.javaguru.java2.services.GetShoppingListService;
-import lv.javaguru.java2.services.RemoveProductService;
+import lv.javaguru.java2.config.SpringAppConfig;
 import lv.javaguru.java2.views.AddProductView;
 import lv.javaguru.java2.views.PrintShoppingListView;
 import lv.javaguru.java2.views.RemoveProductView;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.Scanner;
 
@@ -19,16 +17,13 @@ public class ShoppingListApplication {
         // 2. Remove product from list
         // 3. Print shopping list to console
         // 4. Exit
-        
-        ProductRepository database = new ProductRepositoryImpl();
 
-        AddProductService addProductService = new AddProductService(database);
-        RemoveProductService removeProductService = new RemoveProductService(database);
-        GetShoppingListService getShoppingListService = new GetShoppingListService(database);
-        
-        AddProductView addProductView = new AddProductView(addProductService);
-        RemoveProductView removeProductView = new RemoveProductView(removeProductService);
-        PrintShoppingListView printShoppingListView = new PrintShoppingListView(getShoppingListService);
+        ApplicationContext context
+                = new AnnotationConfigApplicationContext(SpringAppConfig.class);
+
+        AddProductView addProductView = context.getBean(AddProductView.class);
+        RemoveProductView removeProductView = context.getBean(RemoveProductView.class);
+        PrintShoppingListView printShoppingListView = context.getBean(PrintShoppingListView.class);
 
         while (true) {
             printProgramMenu();
