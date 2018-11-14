@@ -1,4 +1,4 @@
-package lv.javaguru.java2.services;
+package lv.javaguru.java2.services.get;
 
 import lv.javaguru.java2.domain.Product;
 import lv.javaguru.java2.database.ProductRepository;

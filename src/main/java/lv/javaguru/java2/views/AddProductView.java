@@ -1,6 +1,7 @@
 package lv.javaguru.java2.views;
 
-import lv.javaguru.java2.services.AddProductService;
+import lv.javaguru.java2.services.add.AddProductRequest;
+import lv.javaguru.java2.services.add.AddProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,12 +13,6 @@ public class AddProductView {
     @Autowired
     private AddProductService addProductService;
 
-/*
-    public AddProductView(AddProductService addProductService) {
-        this.addProductService = addProductService;
-    }
-*/
-
     public void execute() {
         System.out.println();
         System.out.println("Add product to list execution start!");
@@ -27,7 +22,8 @@ public class AddProductView {
         System.out.print("Enter product description:");
         String description = sc.nextLine();
 
-        addProductService.add(title, description);
+        AddProductRequest request = new AddProductRequest(title, description);
+        addProductService.add(request);
 
         System.out.println("Add product to list execution end!");
         System.out.println();

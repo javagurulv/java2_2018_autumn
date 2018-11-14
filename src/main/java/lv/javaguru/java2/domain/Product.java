@@ -6,6 +6,19 @@ public class Product {
     private String title;
     private String description;
 
+    public Product() {
+    }
+
+    public Product(Long id, String title, String description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+    }
+
+    public Product(String title) {
+        this.title = title;
+    }
+
     public Long getId() {
         return id;
     }

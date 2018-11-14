@@ -1,6 +1,6 @@
 package lv.javaguru.java2.views;
 
-import lv.javaguru.java2.services.GetShoppingListService;
+import lv.javaguru.java2.services.get.GetShoppingListService;
 import lv.javaguru.java2.domain.Product;
 import org.springframework.stereotype.Component;
 
