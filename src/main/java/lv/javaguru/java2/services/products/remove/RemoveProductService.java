@@ -1,4 +1,4 @@
-package lv.javaguru.java2.services.remove;
+package lv.javaguru.java2.services.products.remove;
 
 import lv.javaguru.java2.domain.Product;
 import lv.javaguru.java2.database.ProductRepository;

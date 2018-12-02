@@ -1,9 +1,9 @@
-package lv.javaguru.java2.services.add;
+package lv.javaguru.java2.services.products.add;
 
 import lv.javaguru.java2.database.ProductRepository;
 import lv.javaguru.java2.domain.Product;
-import lv.javaguru.java2.services.Error;
-import lv.javaguru.java2.services.add.validation.AddProductValidator;
+import lv.javaguru.java2.services.ShoppingListError;
+import lv.javaguru.java2.services.products.add.validation.AddProductValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +20,7 @@ public class AddProductService {
 
 
     public AddProductResponse add(AddProductRequest request) {
-        List<Error> errors = validator.validate(request);
+        List<ShoppingListError> errors = validator.validate(request);
         if (!errors.isEmpty()) {
             return new AddProductResponse(errors);
         }

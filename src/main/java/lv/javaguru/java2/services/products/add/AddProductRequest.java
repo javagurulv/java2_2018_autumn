@@ -1,4 +1,4 @@
-package lv.javaguru.java2.services.add;
+package lv.javaguru.java2.services.products.add;
 
 public class AddProductRequest {
 

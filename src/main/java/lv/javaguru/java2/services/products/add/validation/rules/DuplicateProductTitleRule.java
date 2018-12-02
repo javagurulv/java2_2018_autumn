@@ -1,8 +1,8 @@
-package lv.javaguru.java2.services.add.validation.rules;
+package lv.javaguru.java2.services.products.add.validation.rules;
 
 import lv.javaguru.java2.database.ProductRepository;
 import lv.javaguru.java2.domain.Product;
-import lv.javaguru.java2.services.Error;
+import lv.javaguru.java2.services.ShoppingListError;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
@@ -16,11 +16,11 @@ public class DuplicateProductTitleRule {
         this.repository = repository;
     }
 
-    public Optional<Error> execute(String title) {
+    public Optional<ShoppingListError> execute(String title) {
         if (title != null) {
             Optional<Product> product = repository.findByTitle(title);
             if (product.isPresent()) {
-                Error error = new Error("title", "Duplicate title not allowed");
+                ShoppingListError error = new ShoppingListError("title", "Duplicate title not allowed");
                 return Optional.of(error);
             }
         }

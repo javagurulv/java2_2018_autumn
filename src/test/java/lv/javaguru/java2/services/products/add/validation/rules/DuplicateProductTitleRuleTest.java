@@ -1,8 +1,8 @@
-package lv.javaguru.java2.services.add.validation.rules;
+package lv.javaguru.java2.services.products.add.validation.rules;
 
 import lv.javaguru.java2.database.ProductRepository;
 import lv.javaguru.java2.domain.Product;
-import lv.javaguru.java2.services.Error;
+import lv.javaguru.java2.services.ShoppingListError;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -28,7 +28,7 @@ public class DuplicateProductTitleRuleTest {
         Mockito.when(repository.findByTitle("milk"))
                 .thenReturn(Optional.of(product));
 
-        Optional<Error> error = rule.execute("milk");
+        Optional<ShoppingListError> error = rule.execute("milk");
 
         assertEquals(error.isPresent(), true);
         assertEquals(error.get().getField(), "title");
@@ -40,14 +40,14 @@ public class DuplicateProductTitleRuleTest {
         Mockito.when(repository.findByTitle("milk"))
                 .thenReturn(Optional.empty());
 
-        Optional<Error> error = rule.execute("milk");
+        Optional<ShoppingListError> error = rule.execute("milk");
 
         assertEquals(error.isPresent(), false);
     }
 
     @Test
     public void shouldReturnNoErrorIfProductTitleIsNull() {
-        Optional<Error> error = rule.execute(null);
+        Optional<ShoppingListError> error = rule.execute(null);
 
         assertEquals(error.isPresent(), false);
 

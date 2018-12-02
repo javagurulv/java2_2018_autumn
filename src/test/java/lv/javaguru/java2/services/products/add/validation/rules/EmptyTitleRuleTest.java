@@ -1,6 +1,6 @@
-package lv.javaguru.java2.services.add.validation.rules;
+package lv.javaguru.java2.services.products.add.validation.rules;
 
-import lv.javaguru.java2.services.Error;
+import lv.javaguru.java2.services.ShoppingListError;
 import org.junit.Test;
 
 import java.util.Optional;
@@ -13,7 +13,7 @@ public class EmptyTitleRuleTest {
 
     @Test
     public void shouldReturnErrorWhenTitleIsEmpty() {
-        Optional<Error> errorOpt = rule.execute("");
+        Optional<ShoppingListError> errorOpt = rule.execute("");
         assertEquals(errorOpt.isPresent(), true);
         assertEquals(errorOpt.get().getField(), "title");
         assertEquals(errorOpt.get().getDescription(), "Empty title not allowed");
@@ -21,7 +21,7 @@ public class EmptyTitleRuleTest {
 
     @Test
     public void shouldReturnErrorWhenTitleIsNull() {
-        Optional<Error> errorOpt = rule.execute(null);
+        Optional<ShoppingListError> errorOpt = rule.execute(null);
         assertEquals(errorOpt.isPresent(), true);
         assertEquals(errorOpt.get().getField(), "title");
         assertEquals(errorOpt.get().getDescription(), "Empty title not allowed");
@@ -29,7 +29,7 @@ public class EmptyTitleRuleTest {
 
     @Test
     public void shouldNotReturnErrorWhenTitleNotEmpty() {
-        Optional<Error> errorOpt = rule.execute("title");
+        Optional<ShoppingListError> errorOpt = rule.execute("title");
         assertEquals(errorOpt.isPresent(), false);
     }
 

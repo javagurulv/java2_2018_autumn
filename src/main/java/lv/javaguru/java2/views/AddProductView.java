@@ -1,7 +1,7 @@
 package lv.javaguru.java2.views;
 
-import lv.javaguru.java2.services.add.AddProductRequest;
-import lv.javaguru.java2.services.add.AddProductService;
+import lv.javaguru.java2.services.products.add.AddProductRequest;
+import lv.javaguru.java2.services.products.add.AddProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

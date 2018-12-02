@@ -1,19 +1,19 @@
-package lv.javaguru.java2.services.add;
+package lv.javaguru.java2.services.products.add;
 
-import lv.javaguru.java2.services.Error;
+import lv.javaguru.java2.services.ShoppingListError;
 
 import java.util.List;
 
 public class AddProductResponse {
 
     private Long productId;
-    private List<Error> errors;
+    private List<ShoppingListError> errors;
 
     public AddProductResponse(Long productId) {
         this.productId = productId;
     }
 
-    public AddProductResponse(List<Error> errors) {
+    public AddProductResponse(List<ShoppingListError> errors) {
         this.errors = errors;
     }
 
@@ -21,16 +21,8 @@ public class AddProductResponse {
         return productId;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public List<Error> getErrors() {
+    public List<ShoppingListError> getErrors() {
         return errors;
-    }
-
-    public void setErrors(List<Error> errors) {
-        this.errors = errors;
     }
 
     public boolean isSuccess() {

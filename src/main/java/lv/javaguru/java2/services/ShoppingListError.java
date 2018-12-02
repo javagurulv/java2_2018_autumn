@@ -1,12 +1,12 @@
 package lv.javaguru.java2.services;
 
-public class Error {
+public class ShoppingListError {
 
     private String field;
 
     private String description;
 
-    public Error(String field, String description) {
+    public ShoppingListError(String field, String description) {
         this.field = field;
         this.description = description;
     }

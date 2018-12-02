@@ -1,9 +1,9 @@
-package lv.javaguru.java2.services.add.validation;
+package lv.javaguru.java2.services.products.add.validation;
 
-import lv.javaguru.java2.services.Error;
-import lv.javaguru.java2.services.add.AddProductRequest;
-import lv.javaguru.java2.services.add.validation.rules.DuplicateProductTitleRule;
-import lv.javaguru.java2.services.add.validation.rules.EmptyTitleRule;
+import lv.javaguru.java2.services.ShoppingListError;
+import lv.javaguru.java2.services.products.add.AddProductRequest;
+import lv.javaguru.java2.services.products.add.validation.rules.DuplicateProductTitleRule;
+import lv.javaguru.java2.services.products.add.validation.rules.EmptyTitleRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -31,12 +31,12 @@ public class AddProductValidatorImplTest {
     @Test
     public void shouldReturnCollectAndReturnErrors() {
         Mockito.when(emptyTitleRule.execute("milk"))
-                .thenReturn(Optional.of(new Error("title", "des")));
+                .thenReturn(Optional.of(new ShoppingListError("title", "des")));
 
         Mockito.when(duplicateProductTitleRule.execute("milk"))
-                .thenReturn(Optional.of(new Error("title", "duplicate")));
+                .thenReturn(Optional.of(new ShoppingListError("title", "duplicate")));
 
-        List<Error> errors = validator.validate(
+        List<ShoppingListError> errors = validator.validate(
                 new AddProductRequest("milk", "desc")
         );
 
