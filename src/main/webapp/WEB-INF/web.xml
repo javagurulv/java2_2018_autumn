@@ -4,6 +4,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
                       http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
+<!--
     <servlet>
         <servlet-name>HelloServlet</servlet-name>
         <servlet-class>lv.javaguru.java2.web.HelloServlet</servlet-class>
@@ -21,4 +22,5 @@
         <servlet-name>ProductsServlet</servlet-name>
         <url-pattern>/products/*</url-pattern>
     </servlet-mapping>
+-->
 </web-app>

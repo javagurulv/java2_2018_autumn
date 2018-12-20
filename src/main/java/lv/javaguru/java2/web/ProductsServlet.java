@@ -1,7 +1,7 @@
 package lv.javaguru.java2.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lv.javaguru.java2.domain.Product;
+import lv.javaguru.java2.console.domain.Product;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
