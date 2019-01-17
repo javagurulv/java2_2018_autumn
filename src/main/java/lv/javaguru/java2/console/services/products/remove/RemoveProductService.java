@@ -19,7 +19,8 @@ public class RemoveProductService {
         Optional<Product> foundProduct = database.findByTitle(title);
         if (foundProduct.isPresent()) {
             Product product = foundProduct.get();
-            return database.remove(product);
+            database.delete(product);
+            return true;
         } else {
             return false;
         }

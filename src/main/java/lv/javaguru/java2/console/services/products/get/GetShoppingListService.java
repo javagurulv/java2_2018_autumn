@@ -16,7 +16,7 @@ public class GetShoppingListService {
     }
     
     public List<Product> getAllProducts() {
-        return database.getAll();
+        return database.findAll();
     }
     
 }
